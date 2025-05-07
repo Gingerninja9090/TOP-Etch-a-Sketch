@@ -1,0 +1,16 @@
+div {
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+.col .row {
+    border: solid 0.5px black;
+    height: 24px;
+    width: 24px;
+    background-color: yellow;
+}
+
+.col {
+    display: flex;
+}
