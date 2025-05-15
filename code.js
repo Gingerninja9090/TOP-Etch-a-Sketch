@@ -1,4 +1,9 @@
-const grid = document.querySelector("div");
+const grid = document.querySelector(".container");
+
+const btn = document.createElement("button")
+btn.textContent = "Generate Grid"
+
+grid.appendChild(btn)
 
 function gridCreateCol() {
     for (let i = 0; i < 16; i++) {
@@ -15,12 +20,12 @@ function gridCreateCol() {
         }
         
     }
+
 };
 
 gridCreateCol();
 
-const hover = document.querySelector("#row");
-
-hover.addEventListener('mouseover', function() {
-  hover.style.backgroundColor = 'lightblue';
+grid.addEventListener('mouseover', (color) => {
+color.target.style.backgroundColor = 'red';
+console.log("Hovered");
 });
