@@ -1,12 +1,11 @@
 div {
-    height: 24px;
     align-items: center;
     justify-content: center;
 }
 
 .row {
-    height: 25px;
-    width: 25px;
+    height: 9.5px;
+    width: 9.5px;
     background-color: yellow;
 }
 
@@ -15,5 +14,6 @@ div {
 }
 
 .gridHouse {
-    width: 400px;
+    width: 950px;
+    height: 950px;
 }
