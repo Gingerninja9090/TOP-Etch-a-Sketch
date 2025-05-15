@@ -7,8 +7,19 @@ container.appendChild(btn);
 
 btn.addEventListener("click", () => {
     grid.removeChild(grid.firstChild);
+
     let columnSize = prompt("Input the grid column size");
+    if (columnSize > 100) {
+        return alert("Grid column size cannot be greater than 100!!"),
+        createGrid()
+    };
+
     let rowSize = prompt("Input the grid row size");
+    if (rowSize > 100) {
+        return alert("Grid row size cannot be greater than 100!!"),
+        createGrid()
+    };
+
     createGrid(columnSize, rowSize);
 });
 
@@ -30,16 +41,15 @@ createGrid = (columnSize, rowSize) => {
         for (let r = 0; r < rowSize; r++) {
             const gridRow = document.createElement("div");
             gridRow.classList.toggle("row");
-
             gridCol.appendChild(gridRow);
+
+            gridRow.addEventListener("mouseover", (color) => {
+                color.target.style.backgroundColor = "red";
+            });
         }
     }
 };
 
 container.appendChild(grid);
 
-createGrid();
-
-grid.addEventListener("mouseover", (color) => {
-    color.target.style.backgroundColor = "red";
-});
+createGrid(16,16);
