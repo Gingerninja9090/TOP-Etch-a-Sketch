@@ -6,7 +6,8 @@ div {
 .row {
     height: 9.5px;
     width: 9.5px;
-    background-color: yellow;
+    border: solid 0.5px lightgray;
+    background-color: white;
 }
 
 .col {
