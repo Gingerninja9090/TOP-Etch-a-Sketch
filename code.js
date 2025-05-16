@@ -1,3 +1,4 @@
+// Added selector for container div and created button element //
 const container = document.querySelector(".container");
 
 const btn = document.createElement("button");
@@ -5,6 +6,7 @@ btn.textContent = "Generate Grid";
 
 container.appendChild(btn);
 
+// Added listener for click event on button element to remove current child and add new child based on size provided //
 btn.addEventListener("click", () => {
     grid.removeChild(grid.firstChild);
 
@@ -23,9 +25,26 @@ btn.addEventListener("click", () => {
     createGrid(columnSize, rowSize);
 });
 
+// Creates a div for the grid to be housed and in //
 const grid = document.createElement("div");
 grid.classList.toggle("gridHouse");
 
+// Random number generator for use in RGB color selection //
+function getRandomNumber() {
+    let randomNumber = Math.floor(Math.random() * 1000)
+    let answer = ""
+
+    if (randomNumber > 255) {
+        return answer = Math.floor(randomNumber / 4)
+    }
+    else if (randomNumber < 255) {
+        return answer = randomNumber
+    }
+
+    return answer
+};
+
+// Grid creation function //
 createGrid = (columnSize, rowSize) => {
     const gridArea = document.createElement("div");
     gridArea.classList.toggle("paintArea");
@@ -44,12 +63,19 @@ createGrid = (columnSize, rowSize) => {
             gridCol.appendChild(gridRow);
 
             gridRow.addEventListener("mouseover", (color) => {
-                color.target.style.backgroundColor = "red";
+                let a = getRandomNumber();
+                let b = getRandomNumber();
+                let c = getRandomNumber();
+                color.target.style.backgroundColor = "rgb("+ a + ", " + b + ", " + c + ")";
+                color.target.style.opacity -= "-0.1"
+                if (color.target.style.opacity > 1) {
+                    return color.target.style.opacity = 1
+                }
             });
         }
     }
 };
 
 container.appendChild(grid);
-
+// Inital grid creation or start location //
 createGrid(16,16);
